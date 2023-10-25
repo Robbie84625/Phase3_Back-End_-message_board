@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+        <meta charset="utf-8"/>
+        <title>圖文留言板</title>
+        <link rel="stylesheet" type="text/css" href="/css/style.css">
+    </head>
+<body>
+    <div style=" border: 1px solid black;padding: 0px 30px;max-width: 1200px;margin: 0px auto;">
+        <div>
+            <div class="title">發表一篇圖文</div>
+            <div style="margin: 5px 0px;" class="text">文字內容 <input type="text" class="text" style="width: 300px;" id="messageContent" placeholder="輸入訊息"/></div>
+            <div style="margin: 5px 0px;" class="text">
+                圖片檔案
+                <button style="margin: 0px 5px;" class="text" id="chooseFileButton">Choose File</button>
+                <span  class="text" id="fileName">No file chosen</span>
+                <input type="file" name="file" id="fileInput" style="display:none">
+            </div>
+            <button class="text" id="uploadButton">送出</button>
+            <hr/>
+        </div>
+        <div  class="messageBoard">
+
+        </div>
+    </div>
+    <script type="text/javascript" src="scripts/home.js"></script>
+</body>
+</html>

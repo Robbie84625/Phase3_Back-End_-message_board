@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+
+.title{
+    font-family: 'Noto Sans TC', sans-serif;
+    font-weight: 700;
+    font-size: 30px;
+    margin: 30px 0px;
+}
+.text{
+    font-family: 'Noto Sans TC', sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+}
+
+hr{
+    background-color: 	#dcdcdc;
+    border-color: 	#dcdcdc;
+    margin-top: 10px;
+}
+
+.messageBoard__content__image{
+    height: 100%;
+    width: 500px;
+    margin: 20px 0px;
+}
+.messageBoard__content__text{
+    font-size: 22px;
+    padding: 10px 0px;
+}
