@@ -10,4 +10,6 @@ RUN npm install
 
 COPY . /usr/src/app
 
+CMD ["node", "app.js"]
+
 EXPOSE 5000
