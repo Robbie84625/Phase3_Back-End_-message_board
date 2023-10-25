@@ -29,26 +29,6 @@ const upload = multer({
     },
 });
 
-// router.post('/upload',upload.single('file'), async(req, res) => {
-//     if (req.file) {
-//         // 在這裡獲取上傳的文件，例如從req或req.body中獲取文件數據
-//         const params = {
-//             Bucket:process.env.S3_Headshot_Bucket,
-//             Key: req.file.originalname,
-//             Body: req.file.buffer
-//         }
-//         s3.upload(params, async (err) => {
-//             if (err) {
-//                 console.error("檔案上傳至S3失敗", err);
-//                 return res.status(500).json({ message: "檔案上傳至S3失敗" });
-//             }
-//             const cloudFrontDomain=process.env.cloudFrontDomain;
-//             const cloudFrontUrl = `${cloudFrontDomain}/${req.file.originalname}`;
-
-//             await messageProcessInstance.insertMessage(req.body.messageContent,cloudFrontUrl);
-//         });
-//     }
-// });
 
 
 router.post('/upload', upload.single('file'), async (req, res) => {

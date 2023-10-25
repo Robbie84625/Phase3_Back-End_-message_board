@@ -44,6 +44,8 @@ document.getElementById("uploadButton").addEventListener("click", function () {
     })
     .then(data => {
         console.log("文件上傳成功", data);
+        messageContent.value="";
+        window.location.reload();
     })
     .catch(error => {
         console.error("上傳錯誤", error);
@@ -74,7 +76,7 @@ try {
 
     // 解析JSON数据
     const data = await response.json();
-    console.log(data[0])
+
     for(let information of data){
 
         // 创建外层的 <div class="messageBoard__content">
