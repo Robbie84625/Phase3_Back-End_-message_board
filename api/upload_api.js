@@ -1,7 +1,8 @@
 // upload_api.js
 const router = require('express').Router();
 const AWS = require("aws-sdk");
-const multer = require('multer')
+const multer = require('multer');
+const uuid = require('uuid');
 
 let messageProcess = require("../models/upload").messageProcess;
 const messageProcessInstance = new messageProcess();
@@ -35,9 +36,10 @@ router.post('/upload', upload.single('file'), async (req, res) => {
     try {
         if (req.file) {
             // 存在文件，上传到S3
+            const fileName= uuid.v4();
             const params = {
                 Bucket: process.env.S3_Headshot_Bucket,
-                Key: req.file.originalname,
+                Key: fileName,
                 Body: req.file.buffer
             };
 
@@ -48,7 +50,7 @@ router.post('/upload', upload.single('file'), async (req, res) => {
                 }
 
                 const cloudFrontDomain = process.env.cloudFrontDomain;
-                const cloudFrontUrl = `${cloudFrontDomain}/${req.file.originalname}`;
+                const cloudFrontUrl = `${cloudFrontDomain}/${fileName}`;
 
                 await messageProcessInstance.insertMessage(req.body.messageContent, cloudFrontUrl);
                 return res.status(200).json({ message: "上傳成功" });
